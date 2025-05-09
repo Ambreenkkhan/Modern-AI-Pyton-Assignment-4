@@ -20,32 +20,6 @@ def guess(x):
     # Congratulate when correct
     print(f'Yay, congrats. You have guessed the number {random_number} correctly!!')
 
-# Computer guesses user's number
-def computer_guess(x):
-    low = 1     # Minimum possible value
-    high = x    # Maximum possible value
-    feedback = ''  # User feedback (H/L/C)
-    
-    # Continue until computer guesses correctly
-    while feedback != 'c':
-        # Generate guess within current possible range
-        if low != high:
-            guess = random.randint(low, high)
-        else:
-            # When range narrows to single number
-            guess = low  # could also be high b/c low = high
-        
-        # Get user feedback
-        feedback = input(f'Is {guess} too high (H), too low (L), or correct (C)?? ').lower()
-        
-        # Adjust search range based on feedback
-        if feedback == 'h':
-            high = guess - 1  # Set new upper bound
-        elif feedback == 'l':
-            low = guess + 1   # Set new lower bound
-
-    # Final success message
-    print(f'Yay! The computer guessed your number, {guess}, correctly!')
 
 # Start the user-guessing game with range 1-10
 guess(10)
